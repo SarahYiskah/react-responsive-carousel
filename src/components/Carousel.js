@@ -15,6 +15,7 @@ class Carousel extends Component {
     static displayName = 'Carousel';
 
     static propTypes = {
+        id: PropTypes.string,
         className: PropTypes.string,
         children: PropTypes.node,
         showArrows: PropTypes.bool,
@@ -693,7 +694,7 @@ class Carousel extends Component {
             containerStyles.height = this.state.itemSize;
         }
         return (
-            <div className={this.props.className} ref={this.setCarouselWrapperRef}>
+            <div className={this.props.className} ref={this.setCarouselWrapperRef} id={this.props.id}>
                 <div className={klass.CAROUSEL(true)} style={{width: this.props.width}}>
                     <button type="button" className={klass.ARROW_PREV(!hasPrev)} onClick={this.onClickPrev} />
                     <div className={klass.WRAPPER(true, this.props.axis)} style={containerStyles} ref={this.setItemsWrapperRef}>
